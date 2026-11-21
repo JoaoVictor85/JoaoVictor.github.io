@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases de Sucesso - João Victor Santos</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Dev Icon Fonts -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <!-- Ion Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    
+    <!-- CSS dos Cases -->
+    <link rel="stylesheet" href="css/cases.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html" class="btn-voltar"><ion-icon name="arrow-back-outline"></ion-icon> Voltar para o Portfólio</a>
+    </div>
+
+    <div class="container">
+        
+        <!-- Tela Principal: Lista de Cases -->
+        <div id="cases-list-view">
+            <header class="page-header">
+                <h1>Meus Cases de Sucesso</h1>
+                <p>Projetos reais de arquitetura, automação e otimização na AWS.</p>
+                
+                <!-- Barra de Pesquisa -->
+                <div class="search-bar">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" id="searchInput" onkeyup="filtrarCases()" placeholder="Pesquisar por tecnologia, problema ou resultado... (Ex: EKS, Redução)">
+                </div>
+            </header>
+
+            <!-- Grade de Cases (Boxes) -->
+            <div class="cases-grid" id="casesGrid">
+                
+                <!-- BOX: Case 1 -->
+                <div class="case-card" onclick="abrirCase('case-1')">
+                    <div class="diff-wrapper">
+                        <span class="diff-text">Avançado</span>
+                        <div class="diff-meter hard">
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <ion-icon name="water" class="diff-pointer"></ion-icon>
+                        </div>
+                    </div>
+                    <h3 class="case-title">Redução de 42% nos custos de infraestrutura AWS e deploy zero-downtime com EKS e Terraform</h3>
+                    <p class="case-desc">Migração de um monolito hospedado em EC2 para microserviços no Amazon EKS, implementando governança FinOps e CI/CD automatizado.</p>
+                    <span class="read-more">Ler Case Completo <ion-icon name="arrow-forward-outline"></ion-icon></span>
+                </div>
+
+                <!-- BOX: Case 2 -->
+                <div class="case-card" onclick="abrirCase('case-2')">
+                    <div class="diff-wrapper">
+                        <span class="diff-text">Intermediário</span>
+                        <div class="diff-meter medium">
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <ion-icon name="water" class="diff-pointer"></ion-icon>
+                        </div>
+                    </div>
+                    <h3 class="case-title">Otimização de CI/CD: Redução do Lead Time de 45 para 6 minutos com GitHub Actions</h3>
+                    <p class="case-desc">Reestruturação completa de pipelines de integração e entrega contínua, eliminando deploys manuais e reduzindo falhas em produção.</p>
+                    <span class="read-more">Ler Case Completo <ion-icon name="arrow-forward-outline"></ion-icon></span>
+                </div>
+
+                <!-- BOX: Case 3 -->
+                <div class="case-card" onclick="abrirCase('case-3')">
+                    <div class="diff-wrapper">
+                        <span class="diff-text">Especialista</span>
+                        <div class="diff-meter expert">
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <div class="diff-segment"></div>
+                            <ion-icon name="water" class="diff-pointer"></ion-icon>
+                        </div>
+                    </div>
+                    <h3 class="case-title">Alta Disponibilidade (99.99%) e Disaster Recovery Multi-Region na AWS</h3>
+                    <p class="case-desc">Desenho e implementação de arquitetura resiliente com failover automático usando Route53, RDS Multi-AZ e Auto Scaling Groups.</p>
+                    <span class="read-more">Ler Case Completo <ion-icon name="arrow-forward-outline"></ion-icon></span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =========================================================
+             CONTEÚDO DOS CASES (Ocultos por padrão)
+        ========================================================== -->
+
+        <!-- CASE 1 COMPLETO -->
+        <article id="case-1" class="case-content" style="display: none;">
+            <button class="btn-voltar-lista" onclick="voltarParaLista()"><ion-icon name="list-outline"></ion-icon> Voltar para a lista de Cases</button>
+            
+            <h1>Redução de 42% nos custos de infraestrutura AWS e deploy zero-downtime com EKS e Terraform</h1>
+            
+            <section class="case-section">
+                <h2>1. Contexto e Arquitetura Inicial</h2>
+                <p>O cliente possuía uma aplicação monolítica rodando em instâncias EC2 superdimensionadas (oversized) e gerenciadas de forma manual. Os deployments exigiam janelas de manutenção nas madrugadas, causando indisponibilidade frequente. Não havia visibilidade granular sobre os custos, resultando em desperdício em ambientes de homologação que ficavam ligados 24/7.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>2. O Desafio e os Objetivos</h2>
+                <ul>
+                    <li><strong>Reduzir os custos operacionais (FinOps)</strong> em pelo menos 30%.</li>
+                    <li><strong>Alcançar zero-downtime</strong> durante as atualizações de versão da aplicação.</li>
+                    <li><strong>Infraestrutura imutável</strong>: eliminar a gestão manual através de IaC.</li>
+                </ul>
+            </section>
+
+            <section class="case-section">
+                <h2>3. Solução Técnica e Stack AWS</h2>
+                <p>A decisão foi modernizar a carga de trabalho através da containerização e orquestração gerenciada.</p>
+                <ul>
+                    <li><strong>IaC:</strong> Terraform para provisionar VPC, Subnets, EKS Cluster e RDS de forma idempotente.</li>
+                    <li><strong>Computação:</strong> Amazon EKS (Kubernetes) utilizando um mix de On-Demand e Spot Instances para processamento assíncrono.</li>
+                    <li><strong>CI/CD:</strong> GitLab CI para automatizar o build da imagem Docker e o deploy via Helm.</li>
+                    <li><strong>Observabilidade:</strong> Prometheus e Grafana para monitoramento do cluster, combinados ao AWS Cost Explorer para alertas de budget.</li>
+                </ul>
+            </section>
+
+            <section class="case-section">
+                <h2>4. Execução e Migração</h2>
+                <p>A migração foi realizada utilizando a estratégia <em>Canary Deployment</em>. Criamos a nova infraestrutura em paralelo via Terraform. Redirecionamos 5% do tráfego do Route53 para o novo cluster EKS. Após 48 horas de monitoramento sem anomalias, aumentamos o peso gradativamente até 100%. O banco de dados foi migrado usando o AWS DMS (Database Migration Service) com replicação contínua para evitar perda de dados.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>5. Resultados e Métricas</h2>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Antes (EC2 Monolito)</th>
+                            <th>Depois (EKS + IaC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tempo de Deploy</td>
+                            <td>~2 horas (Downtime)</td>
+                            <td>12 minutos (Zero-Downtime)</td>
+                        </tr>
+                        <tr>
+                            <td>Disponibilidade (SLA)</td>
+                            <td>99.1%</td>
+                            <td>99.98%</td>
+                        </tr>
+                        <tr>
+                            <td>Custo Mensal AWS</td>
+                            <td>US$ 15.000</td>
+                            <td>US$ 8.700 <strong>(-42%)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Recuperação (MTTR)</td>
+                            <td>4 horas</td>
+                            <td>15 minutos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="case-section">
+                <h2>6. Lições Aprendidas e Próximos Passos</h2>
+                <p>A adoção do EKS trouxe grande resiliência, mas a curva de aprendizado inicial da equipe de desenvolvimento foi um desafio. Para o futuro, mapeamos a implementação do Karpenter para um Auto Scaling de nós ainda mais rápido e agressivo, e a adoção de Chaos Engineering para testar a resiliência dos Pods em horário comercial.</p>
+            </section>
+            <section class="case-section tech-stack">
+                <h2>7. Tecnologias & Padrões Utilizados</h2>
+                <div class="tech-icons">
+                    <i class="devicon-amazonwebservices-plain-wordmark colored" title="AWS"></i>
+                    <i class="devicon-kubernetes-plain colored" title="Amazon EKS"></i>
+                    <i class="devicon-terraform-plain colored" title="Terraform"></i>
+                    <i class="devicon-gitlab-plain colored" title="GitLab CI/CD"></i>
+                    <i class="devicon-docker-plain colored" title="Docker"></i>
+                    <i class="devicon-prometheus-original colored" title="Prometheus"></i>
+                    <i class="devicon-grafana-original colored" title="Grafana"></i>
+                </div>
+            </section>
+        </article>
+
+        <!-- CASE 2 COMPLETO -->
+        <article id="case-2" class="case-content" style="display: none;">
+            <button class="btn-voltar-lista" onclick="voltarParaLista()"><ion-icon name="list-outline"></ion-icon> Voltar para a lista de Cases</button>
+            <h1>Otimização de CI/CD: Redução do Lead Time de 45 para 6 minutos com GitHub Actions</h1>
+            <p><em>(Conteúdo fictício para o Case 2... Siga a estrutura do Case 1 quando for preencher com seus dados reais.)</em></p>
+        </article>
+
+        <!-- CASE 3 COMPLETO -->
+        <article id="case-3" class="case-content" style="display: none;">
+            <button class="btn-voltar-lista" onclick="voltarParaLista()"><ion-icon name="list-outline"></ion-icon> Voltar para a lista de Cases</button>
+            <h1>Alta Disponibilidade (99.99%) e Disaster Recovery Multi-Region na AWS</h1>
+            <p><em>(Conteúdo fictício para o Case 3... Siga a estrutura do Case 1 quando for preencher com seus dados reais.)</em></p>
+        </article>
+
+    </div>
+
+    <!-- Script para navegação SPA e Pesquisa -->
+    <script>
+        // Função para mostrar o case clicado e esconder a lista
+        function abrirCase(caseId) {
+            document.getElementById('cases-list-view').style.display = 'none';
+            
+            // Esconde todos os cases
+            const cases = document.querySelectorAll('.case-content');
+            cases.forEach(c => c.style.display = 'none');
+            
+            // Mostra o case selecionado
+            document.getElementById(caseId).style.display = 'block';
+            
+            // Rola para o topo da página suavemente
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Função para voltar para a lista de cases
+        function voltarParaLista() {
+            // Esconde todos os cases
+            const cases = document.querySelectorAll('.case-content');
+            cases.forEach(c => c.style.display = 'none');
+            
+            // Mostra a lista novamente
+            document.getElementById('cases-list-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Função de filtro da barra de pesquisa
+        function filtrarCases() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const cards = document.getElementsByClassName('case-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].getElementsByClassName('case-title')[0].innerText;
+                const desc = cards[i].getElementsByClassName('case-desc')[0].innerText;
+                
+                if (title.toLowerCase().indexOf(filter) > -1 || desc.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
